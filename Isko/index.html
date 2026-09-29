@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMW Group - Басқару панелі</title>
+    <link rel="stylesheet" href="eeeer.css">
+    <!-- Leaflet.js карта кітапханасы (Карта үшін) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Сол жақтағы Навигациялық Мәзір -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="bmw-logo-circle"></div>
+                <h2>BMW <span>MOTORS</span></h2>
+            </div>
+            
+            <nav class="nav-menu">
+                <ul>
+                    <li class="nav-item active" data-tab="home">
+                        <span class="icon">🏎️</span>
+                        <span>Басты бет</span>
+                    </li>
+                    <li class="nav-item" data-tab="users">
+                        <span class="icon">👤</span>
+                        <span>Қолданушы</span>
+                    </li>
+                    <li class="nav-item" data-tab="dealers">
+                        <span class="icon">💼</span>
+                        <span>Сатушылар</span>
+                    </li>
+                    <li class="nav-item" data-tab="sales-stats">
+                        <span class="icon">📊</span>
+                        <span>Кім қанша сатты</span>
+                    </li>
+                    <li class="nav-item" data-tab="map-location">
+                        <span class="icon">📍</span>
+                        <span>Орынын картадан көрсету</span>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <p>BMW Manager v2.4</p>
+            </div>
+        </aside>
+
+        <!-- Негізгі контент аймағы -->
+        <main class="main-content">
+
+            <!-- 1. БАСТЫ БЕТ -->
+            <section id="home" class="content-section active">
+                <header class="section-header">
+                    <h1>Басты бет (Dashboard)</h1>
+                    <p>BMW автосалондары желісінің жалпы көрсеткіштері мен модельдері</p>
+                </header>
+
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-info">
+                            <span>Жалпы сатылым</span>
+                            <h3>482 дана</h3>
+                        </div>
+                        <div class="kpi-icon">🚗</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-info">
+                            <span>Табыс</span>
+                            <h3>$38,500,000</h3>
+                        </div>
+                        <div class="kpi-icon">💰</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-info">
+                            <span>Қоймадағы көліктер</span>
+                            <h3>64 модель</h3>
+                        </div>
+                        <div class="kpi-icon">⚡</div>
+                    </div>
+                </div>
+
+                <h2 class="sub-title">Танымал модельдер</h2>
+                <div class="car-grid">
+                    <div class="car-card">
+                        <div class="car-badge">TOP</div>
+                        <h3>BMW M5 CS</h3>
+                        <p class="price">$142,000</p>
+                        <span class="spec">4.4L V8 TwinTurbo • 635 л.с.</span>
+                    </div>
+                    <div class="car-card">
+                        <div class="car-badge">NEW</div>
+                        <h3>BMW i7 xDrive60</h3>
+                        <p class="price">$120,000</p>
+                        <span class="spec">Электрлі • 544 л.с. • 625 км</span>
+                    </div>
+                    <div class="car-card">
+                        <h3>BMW X7 M60i</h3>
+                        <p class="price">$110,000</p>
+                        <span class="spec">4.4L V8 • M Sport package</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. ҚОЛДАНУШЫ -->
+            <section id="users" class="content-section">
+                <header class="section-header">
+                    <h1>Қолданушылар тізімі</h1>
+                    <p>Автосалон сайтында тіркелген клиенттер мен тапсырыс берушілер</p>
+                </header>
+
+                <div class="table-container">
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Аты-жөні</th>
+                                <th>Телефон</th>
+                                <th>Қызығушылық танытқан модель</th>
+                                <th>Мәртебесі</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#USR-101</td>
+                                <td>Арман Серіков</td>
+                                <td>+7 777 123 45 67</td>
+                                <td><span class="tag tag-car">BMW M5</span></td>
+                                <td><span class="status status-green">Келісімшартта</span></td>
+                            </tr>
+                            <tr>
+                                <td>#USR-102</td>
+                                <td>Динара Ахметова</td>
+                                <td>+7 701 987 65 43</td>
+                                <td><span class="tag tag-car">BMW X5</span></td>
+                                <td><span class="status status-yellow">Тест-драйв</span></td>
+                            </tr>
+                            <tr>
+                                <td>#USR-103</td>
+                                <td>Айбек Нұрланов</td>
+                                <td>+7 705 555 11 22</td>
+                                <td><span class="tag tag-car">BMW i7</span></td>
+                                <td><span class="status status-blue">Кеңес алуда</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 3. САТУШЫЛАР -->
+            <section id="dealers" class="content-section">
+                <header class="section-header">
+                    <h1>Сатушылар (Менеджерлер)</h1>
+                    <p>BMW дилерлік орталығының ресми сату менеджерлері</p>
+                </header>
+
+                <div class="cards-grid">
+                    <div class="manager-card">
+                        <div class="avatar">👨‍💼</div>
+                        <h3>Бауыржан Алиев</h3>
+                        <p class="role">Аға сату менеджері</p>
+                        <p class="phone">📞 +7 702 111 22 33</p>
+                        <p class="experience">Тәжірибесі: 6 жыл</p>
+                    </div>
+                    <div class="manager-card">
+                        <div class="avatar">👩‍💼</div>
+                        <h3>Мадина Оспанова</h3>
+                        <p class="role">VIP-клиенттер менеджері</p>
+                        <p class="phone">📞 +7 702 444 55 66</p>
+                        <p class="experience">Тәжірибесі: 4 жыл</p>
+                    </div>
+                    <div class="manager-card">
+                        <div class="avatar">👨‍💼</div>
+                        <h3>Ерлан Сұлтанов</h3>
+                        <p class="role">Электромобильдер бойынша сарапшы</p>
+                        <p class="phone">📞 +7 702 777 88 99</p>
+                        <p class="experience">Тәжірибесі: 3 жыл</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. КІМ ҚАНША САТТЫ -->
+            <section id="sales-stats" class="content-section">
+                <header class="section-header">
+                    <h1>Кім қанша сатты? (Статистика)</h1>
+                    <p>Менеджерлердің ағымдағы айдағы сатылым рейтингі</p>
+                </header>
+
+                <div class="sales-list">
+                    <div class="sales-item">
+                        <div class="sales-user">
+                            <span class="rank">🥇 1</span>
+                            <div>
+                                <h4>Бауыржан Алиев</h4>
+                                <p>18 автокөлік сатты</p>
+                            </div>
+                        </div>
+                        <div class="progress-bar-wrap">
+                            <div class="progress-bar" style="width: 90%;"></div>
+                        </div>
+                        <span class="total-money">$1,850,000</span>
+                    </div>
+
+                    <div class="sales-item">
+                        <div class="sales-user">
+                            <span class="rank">🥈 2</span>
+                            <div>
+                                <h4>Мадина Оспанова</h4>
+                                <p>14 автокөлік сатты</p>
+                            </div>
+                        </div>
+                        <div class="progress-bar-wrap">
+                            <div class="progress-bar" style="width: 70%;"></div>
+                        </div>
+                        <span class="total-money">$1,420,000</span>
+                    </div>
+
+                    <div class="sales-item">
+                        <div class="sales-user">
+                            <span class="rank">🥉 3</span>
+                            <div>
+                                <h4>Ерлан Сұлтанов</h4>
+                                <p>9 автокөлік сатты</p>
+                            </div>
+                        </div>
+                        <div class="progress-bar-wrap">
+                            <div class="progress-bar" style="width: 45%;"></div>
+                        </div>
+                        <span class="total-money">$980,000</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. ОРЫНЫН КАРТАДАН КӨРСЕТУ -->
+            <section id="map-location" class="content-section">
+                <header class="section-header">
+                    <h1>Автосалонның орналасқан жері</h1>
+                    <p>Картадан ресми BMW дилерлік орталықтарын қараңыз</p>
+                </header>
+
+                <div class="location-container">
+                    <div class="location-info">
+                        <h3>📍 BMW Центр Алматы</h3>
+                        <p><strong>Мекенжайы:</strong> әл-Фараби даңғылы, 140A</p>
+                        <p><strong>Жұмыс уақыты:</strong> 09:00 - 20:00 (Күнделікті)</p>
+                        <p><strong>Тел:</strong> +7 (727) 333-00-11</p>
+                    </div>
+                    <!-- Интерактивті карта блогы -->
+                    <div id="map"></div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="eeeer.js"></script>
+</body>
+</html>
